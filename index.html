@@ -13,23 +13,26 @@
         }
 
         body {
-            background: #fff2f5;  /* нежный розовый фон */
+            background: #fff9fb;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 16px;
+            padding: 12px;
         }
 
         .container {
             max-width: 700px;
             width: 100%;
-            background: transparent;  /* прозрачный фон */
-            padding: 24px 20px;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(255, 150, 180, 0.15);
+            padding: 32px 24px;
+            border: 1px solid #ffe2eb;
         }
 
         h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 600;
             color: #b34167;
             margin-bottom: 4px;
@@ -38,22 +41,22 @@
         }
 
         .subhead {
-            color: #b35f7a;
+            color: #c96b88;
             font-size: 1rem;
-            margin-bottom: 28px;
-            padding-left: 8px;
-            font-weight: 400;
-            border-left: 3px solid #ffb6c1;
+            margin-bottom: 24px;
+            border-left: 4px solid #ffb6c1;
+            padding-left: 16px;
+            background: #fff2f5;
+            border-radius: 0 20px 20px 0;
+            line-height: 1.5;
         }
 
         .question-card {
-            background: rgba(255, 255, 255, 0.7);  /* полупрозрачный белый */
-            backdrop-filter: blur(2px);
-            border-radius: 28px;
+            background: #fff9fb;
+            border-radius: 24px;
             padding: 24px 20px;
             margin-bottom: 20px;
-            border: 1px solid rgba(255, 182, 193, 0.5);
-            box-shadow: 0 4px 12px rgba(255, 150, 180, 0.1);
+            border: 2px solid #ffe2eb;
         }
 
         .question-text {
@@ -68,25 +71,25 @@
             display: flex;
             align-items: flex-start;
             background: white;
-            border: 1px solid #ffd0da;
+            border: 1.5px solid #ffd9e3;
             border-radius: 40px;
             margin-bottom: 10px;
-            padding: 12px 18px;
+            padding: 12px 16px;
             cursor: pointer;
-            transition: 0.15s;
+            transition: 0.2s;
             gap: 12px;
         }
 
         .option:hover {
-            background: #ffeef2;
             border-color: #ff9eb5;
+            background: #fff0f3;
         }
 
         .option input[type="radio"] {
             appearance: none;
             width: 22px;
             height: 22px;
-            border: 2px solid #ff9bb0;
+            border: 2px solid #ffb6c1;
             border-radius: 50%;
             flex-shrink: 0;
             margin-top: 2px;
@@ -113,9 +116,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 24px;
-            gap: 12px;
+            margin-top: 20px;
             flex-wrap: wrap;
+            gap: 12px;
         }
 
         button {
@@ -124,47 +127,51 @@
             color: #882d52;
             font-weight: 600;
             font-size: 1rem;
-            padding: 14px 28px;
+            padding: 12px 28px;
             border-radius: 50px;
             cursor: pointer;
             transition: 0.2s;
+            box-shadow: 0 5px 0 #e695a8;
             border: 1px solid #ffa5b4;
             line-height: 1.2;
-            flex: 1 1 auto;
         }
 
-        button:not(:disabled):hover {
+        button:hover {
             background: #ffa5b4;
-            transform: scale(1.02);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 0 #e695a8;
+        }
+
+        button:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #e695a8;
         }
 
         button:disabled {
-            opacity: 0.4;
-            cursor: default;
+            opacity: 0.5;
+            pointer-events: none;
+            box-shadow: 0 4px 0 #e695a8;
         }
 
         .counter {
-            color: #b35f7a;
+            color: #c96b88;
             font-weight: 500;
-            background: rgba(255, 230, 240, 0.7);
-            padding: 8px 18px;
+            background: #ffeef2;
+            padding: 8px 16px;
             border-radius: 40px;
             font-size: 0.9rem;
-            backdrop-filter: blur(2px);
         }
 
         .result-block {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(4px);
-            border-radius: 40px;
-            padding: 32px 24px;
+            background: linear-gradient(145deg, #fff2f5, #fff9fb);
+            border-radius: 32px;
+            padding: 30px 20px;
             text-align: center;
-            border: 1px solid rgba(255, 182, 193, 0.5);
-            box-shadow: 0 8px 20px rgba(255, 150, 180, 0.15);
+            border: 2px solid #ffd0da;
         }
 
         .result-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: #b53b61;
             margin-bottom: 15px;
@@ -172,7 +179,7 @@
         }
 
         .result-desc {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: #683743;
             margin-bottom: 25px;
             line-height: 1.6;
@@ -180,10 +187,10 @@
 
         .result-role {
             background: white;
-            border-radius: 50px;
-            padding: 12px 22px;
+            border-radius: 40px;
+            padding: 12px 18px;
             display: inline-block;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             border: 2px dashed #ff9eb5;
             color: #b34167;
             font-weight: 600;
@@ -193,48 +200,47 @@
         .restart-btn {
             background: white;
             color: #b34167;
+            box-shadow: 0 5px 0 #f7b1c0;
             border: 2px solid #ffb6c1;
-            box-shadow: none;
+            margin-top: 10px;
+            width: auto;
             min-width: 200px;
-        }
-
-        .restart-btn:hover {
-            background: #fff0f3;
         }
 
         .footer-note {
             margin-top: 24px;
             font-size: 0.85rem;
-            color: #b3657c;
+            color: #d69dae;
             text-align: center;
-            opacity: 0.8;
         }
 
         .hidden {
             display: none;
         }
 
-        /* мобильные улучшения */
+        /* Мобильная адаптация */
         @media (max-width: 600px) {
             body {
                 padding: 8px;
             }
 
             .container {
-                padding: 16px 12px;
+                padding: 20px 16px;
+                border-radius: 28px;
             }
 
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
 
             .subhead {
                 font-size: 0.95rem;
                 margin-bottom: 20px;
+                padding-left: 12px;
             }
 
             .question-card {
-                padding: 20px 16px;
+                padding: 18px 14px;
             }
 
             .question-text {
@@ -245,10 +251,17 @@
             .option {
                 padding: 10px 14px;
                 border-radius: 30px;
+                gap: 10px;
             }
 
             .option label {
                 font-size: 0.95rem;
+            }
+
+            .option input[type="radio"] {
+                width: 20px;
+                height: 20px;
+                margin-top: 1px;
             }
 
             .nav-buttons {
@@ -258,7 +271,6 @@
 
             .counter {
                 align-self: flex-start;
-                margin-bottom: 4px;
             }
 
             button {
@@ -268,7 +280,7 @@
             }
 
             .result-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .result-desc {
@@ -277,9 +289,14 @@
 
             .result-role {
                 font-size: 0.95rem;
-                padding: 10px 18px;
+                padding: 10px 16px;
             }
 
+            .restart-btn {
+                min-width: auto;
+            }
+
+            /* фото */
             img[style*="width: 80px"] {
                 width: 60px !important;
                 height: 60px !important;
@@ -287,8 +304,12 @@
         }
 
         @media (max-width: 400px) {
+            .container {
+                padding: 16px 12px;
+            }
+
             h1 {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
             }
 
             .question-text {
@@ -297,6 +318,10 @@
 
             .option label {
                 font-size: 0.9rem;
+            }
+
+            .option {
+                padding: 8px 12px;
             }
 
             img[style*="width: 80px"] {
@@ -309,31 +334,31 @@
 <body>
 <div class="container" id="app">
     <!-- Шапка с фото (без кружка) -->
-    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-        <img src="myphoto.jpg" alt="Настя" style="width: 80px; height: 80px; object-fit: cover; border-radius: 0; box-shadow: 0 4px 8px rgba(255,150,180,0.2);">
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+        <img src="myphoto.jpg" alt="Настя" style="width: 80px; height: 80px; object-fit: cover; border-radius: 0;">
         <div>
             <h1>Кто ты в мире it</h1>
             <div style="color: #b3657c; font-size: 0.9rem;">тест от Насти</div>
         </div>
     </div>
 
-    <!-- Экран теста -->
+    <!-- Экран теста (виден, пока нет результата) -->
     <div id="quizScreen">
         <div class="subhead">Ответь на 5 вопросов — узнай свой тип мышления</div>
         <div id="questionContainer"></div>
         <div class="nav-buttons">
             <span class="counter" id="questionCounter">1 / 5</span>
-            <div style="display: flex; gap: 10px; width: 100%;">
+            <div style="display: flex; gap: 10px; width: 100%; flex-wrap: wrap;">
                 <button id="prevBtn" disabled style="flex: 1;">← Назад</button>
                 <button id="nextBtn" style="flex: 2;">Далее →</button>
             </div>
         </div>
     </div>
 
-    <!-- Экран результата -->
+    <!-- Экран результата (скрыт изначально) -->
     <div id="resultScreen" class="hidden">
         <div class="result-block">
-            <img src="myphoto.jpg" alt="Настя" style="width: 80px; height: 80px; object-fit: cover; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(255,150,180,0.3);">
+            <img src="myphoto.jpg" alt="Настя" style="width: 80px; height: 80px; object-fit: cover; margin-bottom: 15px;">
             <div class="result-title" id="resultTitle"></div>
             <div class="result-desc" id="resultDesc"></div>
             <div class="result-role" id="resultRole"></div>
@@ -423,9 +448,19 @@
             questionContainer.innerHTML = html;
 
             counter.innerText = `${currentIndex+1} / ${totalQuestions}`;
+
             prevBtn.disabled = currentIndex === 0;
-            nextBtn.disabled = answers[currentIndex] === null;
-            nextBtn.innerText = (currentIndex === totalQuestions - 1) ? 'Узнать результат →' : 'Далее →';
+            if (answers[currentIndex] === null) {
+                nextBtn.disabled = true;
+            } else {
+                nextBtn.disabled = false;
+            }
+
+            if (currentIndex === totalQuestions - 1) {
+                nextBtn.innerText = 'Узнать результат →';
+            } else {
+                nextBtn.innerText = 'Далее →';
+            }
         }
 
         window.selectOption = function(optionKey) {
@@ -437,9 +472,12 @@
 
         function showResult() {
             let scores = { a:0, b:0, c:0 };
-            for (let ans of answers) if (ans) scores[ans]++;
+            for (let ans of answers) {
+                if (ans) scores[ans]++;
+            }
 
-            let type, description, role;
+            let type = '', description = '', role = '';
+
             if (scores.a > scores.b && scores.a > scores.c) {
                 type = '🧠 Архитектор';
                 description = 'Любишь порядок, системы и надёжность. Твой девиз: «Главное, чтобы работало и было масштабируемо».';
@@ -461,6 +499,7 @@
             resultTitle.innerText = type;
             resultDesc.innerText = description;
             resultRole.innerText = role;
+
             quizScreen.classList.add('hidden');
             resultScreen.classList.remove('hidden');
         }
@@ -473,17 +512,16 @@
         });
 
         nextBtn.addEventListener('click', () => {
-            if (answers[currentIndex] === null) return;
-            if (currentIndex === totalQuestions - 1) {
+            if (currentIndex === totalQuestions - 1 && answers[currentIndex] !== null) {
                 showResult();
-            } else {
+            } else if (answers[currentIndex] !== null && currentIndex < totalQuestions - 1) {
                 currentIndex++;
                 renderQuestion();
             }
         });
 
         restartBtn.addEventListener('click', () => {
-            answers.fill(null);
+            answers = new Array(totalQuestions).fill(null);
             currentIndex = 0;
             quizScreen.classList.remove('hidden');
             resultScreen.classList.add('hidden');
@@ -494,7 +532,7 @@
     })();
 </script>
 
-<!-- Poppins font -->
+<!-- Шрифт Poppins -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
