@@ -3,141 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Кто ты в мире IT? — поиск</title>
+    <title>🌸 Кто ты в IT?</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            background: #f8f9fa;
+            background: #fff2f5;  /* нежный розовый фон */
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            padding: 20px 12px;
+            justify-content: center;
+            padding: 16px;
         }
 
-        /* поисковая шапка */
-        .search-header {
-            width: 100%;
+        .container {
             max-width: 700px;
-            margin-bottom: 30px;
+            width: 100%;
+            background: transparent;  /* прозрачный фон */
+            padding: 24px 20px;
         }
 
-        .google-logo {
+        h1 {
             font-size: 2.2rem;
-            font-weight: 500;
-            letter-spacing: -1px;
-            margin-bottom: 15px;
-            color: #3c4043;
+            font-weight: 600;
+            color: #b34167;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
         }
 
-        .google-logo span:nth-child(1) { color: #4285F4; }
-        .google-logo span:nth-child(2) { color: #EA4335; }
-        .google-logo span:nth-child(3) { color: #FBBC05; }
-        .google-logo span:nth-child(4) { color: #4285F4; }
-        .google-logo span:nth-child(5) { color: #34A853; }
-        .google-logo span:nth-child(6) { color: #EA4335; }
-
-        .search-bar {
-            display: flex;
-            align-items: center;
-            background: white;
-            border: 1px solid #dfe1e5;
-            border-radius: 24px;
-            padding: 10px 20px;
-            box-shadow: 0 1px 6px rgba(32,33,36,0.05);
-            width: 100%;
-        }
-
-        .search-icon {
-            width: 20px;
-            height: 20px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%239aa0a6"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>') no-repeat center;
-            background-size: contain;
-            margin-right: 12px;
-        }
-
-        .search-input {
-            flex: 1;
-            border: none;
-            outline: none;
+        .subhead {
+            color: #b35f7a;
             font-size: 1rem;
-            background: transparent;
-            color: #202124;
-        }
-
-        .search-input::placeholder {
-            color: #9aa0a6;
-        }
-
-        .stats {
-            color: #70757a;
-            font-size: 0.9rem;
-            margin: 10px 0 15px 10px;
-        }
-
-        /* карточки-результаты */
-        .result-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 1px 6px rgba(32,33,36,0.1);
-            padding: 20px 20px 10px 20px;
-            margin-bottom: 20px;
-            max-width: 700px;
-            width: 100%;
-            transition: box-shadow 0.2s;
-        }
-
-        .result-card:hover {
-            box-shadow: 0 4px 12px rgba(32,33,36,0.15);
-        }
-
-        .question-title {
-            color: #1a0dab;
-            font-size: 1.3rem;
+            margin-bottom: 28px;
+            padding-left: 8px;
             font-weight: 400;
-            line-height: 1.3;
-            margin-bottom: 12px;
-            text-decoration: none;
-            cursor: pointer;
-            display: inline-block;
+            border-left: 3px solid #ffb6c1;
         }
 
-        .question-title:hover {
-            text-decoration: underline;
+        .question-card {
+            background: rgba(255, 255, 255, 0.7);  /* полупрозрачный белый */
+            backdrop-filter: blur(2px);
+            border-radius: 28px;
+            padding: 24px 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 182, 193, 0.5);
+            box-shadow: 0 4px 12px rgba(255, 150, 180, 0.1);
         }
 
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-left: 8px;
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #882d52;
+            margin-bottom: 20px;
+            line-height: 1.4;
         }
 
         .option {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            background: white;
+            border: 1px solid #ffd0da;
+            border-radius: 40px;
+            margin-bottom: 10px;
+            padding: 12px 18px;
             cursor: pointer;
-            padding: 6px 0;
-            border-radius: 20px;
-            transition: background 0.1s;
+            transition: 0.15s;
+            gap: 12px;
         }
 
         .option:hover {
-            background: #f1f3f4;
+            background: #ffeef2;
+            border-color: #ff9eb5;
         }
 
         .option input[type="radio"] {
             appearance: none;
-            width: 18px;
-            height: 18px;
-            border: 2px solid #5f6368;
+            width: 22px;
+            height: 22px;
+            border: 2px solid #ff9bb0;
             border-radius: 50%;
             flex-shrink: 0;
             margin-top: 2px;
@@ -146,16 +95,17 @@
         }
 
         .option input[type="radio"]:checked {
-            border-color: #1a73e8;
-            background-color: #1a73e8;
-            box-shadow: inset 0 0 0 4px white;
+            border-color: #ff6892;
+            background-color: #ff6892;
+            box-shadow: inset 0 0 0 5px white;
         }
 
         .option label {
             font-size: 1rem;
-            color: #3c4043;
-            line-height: 1.5;
+            color: #4a2a33;
+            font-weight: 400;
             cursor: pointer;
+            line-height: 1.5;
             flex: 1;
         }
 
@@ -163,135 +113,138 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 700px;
-            width: 100%;
-            margin: 10px 0 20px;
-            flex-wrap: wrap;
+            margin-top: 24px;
             gap: 12px;
-        }
-
-        .counter {
-            color: #5f6368;
-            background: #f1f3f4;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            flex-wrap: wrap;
         }
 
         button {
-            background: #f8f9fa;
-            border: 1px solid #dadce0;
-            color: #1a73e8;
-            font-weight: 500;
+            background: #ffb6c1;
+            border: none;
+            color: #882d52;
+            font-weight: 600;
             font-size: 1rem;
-            padding: 10px 24px;
-            border-radius: 24px;
+            padding: 14px 28px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: 0.1s;
-            box-shadow: none;
+            transition: 0.2s;
+            border: 1px solid #ffa5b4;
             line-height: 1.2;
+            flex: 1 1 auto;
         }
 
-        button:hover:not(:disabled) {
-            background: #e8f0fe;
-            border-color: #d2e3fc;
+        button:not(:disabled):hover {
+            background: #ffa5b4;
+            transform: scale(1.02);
         }
 
         button:disabled {
-            color: #9aa0a6;
-            border-color: #e8eaed;
-            background: #f8f9fa;
+            opacity: 0.4;
             cursor: default;
-            opacity: 0.7;
         }
 
-        /* Экран результата в стиле поиска */
-        .result-block {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 1px 6px rgba(32,33,36,0.1);
-            padding: 30px 25px;
-            max-width: 700px;
-            width: 100%;
-            text-align: left;
-        }
-
-        .result-type {
-            font-size: 2.2rem;
+        .counter {
+            color: #b35f7a;
             font-weight: 500;
-            color: #1a73e8;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            background: rgba(255, 230, 240, 0.7);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(2px);
         }
 
-        .result-description {
-            font-size: 1.2rem;
-            color: #202124;
+        .result-block {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 40px;
+            padding: 32px 24px;
+            text-align: center;
+            border: 1px solid rgba(255, 182, 193, 0.5);
+            box-shadow: 0 8px 20px rgba(255, 150, 180, 0.15);
+        }
+
+        .result-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #b53b61;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .result-desc {
+            font-size: 1.15rem;
+            color: #683743;
             margin-bottom: 25px;
             line-height: 1.6;
         }
 
         .result-role {
-            background: #e8f0fe;
-            border-radius: 30px;
-            padding: 10px 22px;
+            background: white;
+            border-radius: 50px;
+            padding: 12px 22px;
             display: inline-block;
             margin-bottom: 30px;
-            color: #1a73e8;
-            font-weight: 500;
-            border: 1px solid #d2e3fc;
+            border: 2px dashed #ff9eb5;
+            color: #b34167;
+            font-weight: 600;
+            font-size: 1rem;
         }
 
         .restart-btn {
-            background: #1a73e8;
-            border: none;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 28px;
-            font-weight: 500;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin-top: 10px;
+            background: white;
+            color: #b34167;
+            border: 2px solid #ffb6c1;
+            box-shadow: none;
+            min-width: 200px;
         }
 
         .restart-btn:hover {
-            background: #1669c1;
+            background: #fff0f3;
         }
 
         .footer-note {
-            margin-top: 30px;
+            margin-top: 24px;
             font-size: 0.85rem;
-            color: #70757a;
+            color: #b3657c;
             text-align: center;
+            opacity: 0.8;
         }
 
         .hidden {
             display: none;
         }
 
-        /* мобильная адаптация */
+        /* мобильные улучшения */
         @media (max-width: 600px) {
             body {
-                padding: 12px 8px;
+                padding: 8px;
             }
 
-            .google-logo {
+            .container {
+                padding: 16px 12px;
+            }
+
+            h1 {
                 font-size: 1.8rem;
-                margin-bottom: 12px;
             }
 
-            .search-bar {
-                padding: 8px 16px;
+            .subhead {
+                font-size: 0.95rem;
+                margin-bottom: 20px;
             }
 
-            .result-card {
-                padding: 16px 16px 6px 16px;
+            .question-card {
+                padding: 20px 16px;
             }
 
-            .question-title {
+            .question-text {
                 font-size: 1.1rem;
+                margin-bottom: 16px;
+            }
+
+            .option {
+                padding: 10px 14px;
+                border-radius: 30px;
             }
 
             .option label {
@@ -305,216 +258,245 @@
 
             .counter {
                 align-self: flex-start;
+                margin-bottom: 4px;
             }
 
             button {
                 width: 100%;
-                padding: 12px 20px;
-            }
-
-            .result-type {
-                font-size: 1.8rem;
-            }
-
-            .result-description {
+                padding: 14px 20px;
                 font-size: 1rem;
+            }
+
+            .result-title {
+                font-size: 2rem;
+            }
+
+            .result-desc {
+                font-size: 1rem;
+            }
+
+            .result-role {
+                font-size: 0.95rem;
+                padding: 10px 18px;
+            }
+
+            img[style*="width: 80px"] {
+                width: 60px !important;
+                height: 60px !important;
+            }
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .question-text {
+                font-size: 1rem;
+            }
+
+            .option label {
+                font-size: 0.9rem;
+            }
+
+            img[style*="width: 80px"] {
+                width: 50px !important;
+                height: 50px !important;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Шапка как в поисковике -->
-    <div class="search-header">
-        <div class="google-logo">
-            <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+<div class="container" id="app">
+    <!-- Шапка с фото (без кружка) -->
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+        <img src="myphoto.jpg" alt="Настя" style="width: 80px; height: 80px; object-fit: cover; border-radius: 0; box-shadow: 0 4px 8px rgba(255,150,180,0.2);">
+        <div>
+            <h1>Кто ты в мире it</h1>
+            <div style="color: #b3657c; font-size: 0.9rem;">тест от Насти</div>
         </div>
-        <div class="search-bar">
-            <div class="search-icon"></div>
-            <input class="search-input" type="text" value="Кто ты в мире it" readonly disabled style="background: none; color: #202124; opacity: 1; -webkit-text-fill-color: #202124;">
-        </div>
-        <div class="stats">Примерно 5 результатов (0,3 сек.)</div>
     </div>
 
-    <!-- Основной контейнер для теста -->
-    <div id="quizContainer" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-        <!-- Экран теста (вопросы) -->
-        <div id="quizScreen">
-            <div id="questionContainer"></div>
-            <div class="nav-buttons">
-                <span class="counter" id="questionCounter">1 / 5</span>
-                <div style="display: flex; gap: 10px; width: 100%;">
-                    <button id="prevBtn" disabled style="flex: 1;">← Назад</button>
-                    <button id="nextBtn" style="flex: 2;">Далее →</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Экран результата -->
-        <div id="resultScreen" class="hidden" style="width: 100%;">
-            <div class="result-block">
-                <div class="result-type" id="resultType"></div>
-                <div class="result-description" id="resultDesc"></div>
-                <div class="result-role" id="resultRole"></div>
-                <button class="restart-btn" id="restartBtn">🔍 Новый поиск</button>
-            </div>
-            <div class="footer-note">
-                ✨ тест от Насти · сохрани ссылку, чтобы поделиться
+    <!-- Экран теста -->
+    <div id="quizScreen">
+        <div class="subhead">Ответь на 5 вопросов — узнай свой тип мышления</div>
+        <div id="questionContainer"></div>
+        <div class="nav-buttons">
+            <span class="counter" id="questionCounter">1 / 5</span>
+            <div style="display: flex; gap: 10px; width: 100%;">
+                <button id="prevBtn" disabled style="flex: 1;">← Назад</button>
+                <button id="nextBtn" style="flex: 2;">Далее →</button>
             </div>
         </div>
     </div>
 
-    <script>
-        (function() {
-            const questions = [
-                {
-                    text: "1. Когда ты приступаешь к чему-то новому, с чего начинаешь?",
-                    options: {
-                        a: "С чёткого плана, распределения задач и структуры.",
-                        b: "С поиска вдохновения — смотрю классные примеры, делаю мудборд.",
-                        c: "С изучения исходных данных: что у нас есть, какие закономерности видны сразу."
-                    }
-                },
-                {
-                    text: "2. Что тебя больше всего радует в рабочем процессе?",
-                    options: {
-                        a: "Идеально выстроенная последовательность, чистое написание, которое приятно читать.",
-                        b: "Красивая картинка, нестандартное решение или удачная визуализация.",
-                        c: "Неожиданный инсайт в данных, который объясняет, почему что-то работает не так."
-                    }
-                },
-                {
-                    text: "3. Если что-то не работает, твоя первая реакция?",
-                    options: {
-                        a: "Проверяю логику, перебираю компоненты.",
-                        b: "Ищу креативные обходные пути или начинаю с нуля в другом стиле.",
-                        c: "Анализирую входные данные, смотрю аномалии, проверяю гипотезы."
-                    }
-                },
-                {
-                    text: "4. Какой формат информации тебе легче всего усваивать?",
-                    options: {
-                        a: "Чёткие инструкции, блок-схемы, списки шагов.",
-                        b: "Яркие презентации, видео, примеры из жизни, обсуждения.",
-                        c: "Подробные отчёты, таблицы, графики, аналитические статьи."
-                    }
-                },
-                {
-                    text: "5. Что для тебя идеальный результат работы?",
-                    options: {
-                        a: "Работающая и понятная система.",
-                        b: "Проект, который вызывает эмоции, выглядит круто и запоминается.",
-                        c: "Точный прогноз, полезная аналитика или обнаруженная закономерность."
-                    }
+    <!-- Экран результата -->
+    <div id="resultScreen" class="hidden">
+        <div class="result-block">
+            <img src="myphoto.jpg" alt="Настя" style="width: 80px; height: 80px; object-fit: cover; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(255,150,180,0.3);">
+            <div class="result-title" id="resultTitle"></div>
+            <div class="result-desc" id="resultDesc"></div>
+            <div class="result-role" id="resultRole"></div>
+            <button class="restart-btn" id="restartBtn">🌸 Пройти ещё раз</button>
+        </div>
+        <div class="footer-note">
+            ✨ сохрани ссылку, чтобы поделиться
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const questions = [
+            {
+                text: "1. Когда ты приступаешь к чему-то новому, с чего начинаешь?",
+                options: {
+                    a: "С чёткого плана, распределения задач и структуры.",
+                    b: "С поиска вдохновения — смотрю классные примеры, делаю мудборд.",
+                    c: "С изучения исходных данных: что у нас есть, какие закономерности видны сразу."
                 }
-            ];
+            },
+            {
+                text: "2. Что тебя больше всего радует в рабочем процессе?",
+                options: {
+                    a: "Идеально выстроенная последовательность, чистое написание, которое приятно читать.",
+                    b: "Красивая картинка, нестандартное решение или удачная визуализация.",
+                    c: "Неожиданный инсайт в данных, который объясняет, почему что-то работает не так."
+                }
+            },
+            {
+                text: "3. Если что-то не работает, твоя первая реакция?",
+                options: {
+                    a: "Проверяю логику, перебираю компоненты.",
+                    b: "Ищу креативные обходные пути или начинаю с нуля в другом стиле.",
+                    c: "Анализирую входные данные, смотрю аномалии, проверяю гипотезы."
+                }
+            },
+            {
+                text: "4. Какой формат информации тебе легче всего усваивать?",
+                options: {
+                    a: "Чёткие инструкции, блок-схемы, списки шагов.",
+                    b: "Яркие презентации, видео, примеры из жизни, обсуждения.",
+                    c: "Подробные отчёты, таблицы, графики, аналитические статьи."
+                }
+            },
+            {
+                text: "5. Что для тебя идеальный результат работы?",
+                options: {
+                    a: "Работающая и понятная система.",
+                    b: "Проект, который вызывает эмоции, выглядит круто и запоминается.",
+                    c: "Точный прогноз, полезная аналитика или обнаруженная закономерность."
+                }
+            }
+        ];
 
-            const totalQuestions = questions.length;
-            let currentIndex = 0;
-            let answers = new Array(totalQuestions).fill(null);
+        const totalQuestions = questions.length;
+        let currentIndex = 0;
+        let answers = new Array(totalQuestions).fill(null);
 
-            const quizScreen = document.getElementById('quizScreen');
-            const resultScreen = document.getElementById('resultScreen');
-            const questionContainer = document.getElementById('questionContainer');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const counter = document.getElementById('questionCounter');
-            const restartBtn = document.getElementById('restartBtn');
+        const quizScreen = document.getElementById('quizScreen');
+        const resultScreen = document.getElementById('resultScreen');
+        const questionContainer = document.getElementById('questionContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const counter = document.getElementById('questionCounter');
+        const restartBtn = document.getElementById('restartBtn');
 
-            const resultType = document.getElementById('resultType');
-            const resultDesc = document.getElementById('resultDesc');
-            const resultRole = document.getElementById('resultRole');
+        const resultTitle = document.getElementById('resultTitle');
+        const resultDesc = document.getElementById('resultDesc');
+        const resultRole = document.getElementById('resultRole');
 
-            function renderQuestion() {
-                const q = questions[currentIndex];
-                let html = `
-                    <div class="result-card">
-                        <div class="question-title">${q.text}</div>
-                        <div class="options">
+        function renderQuestion() {
+            const q = questions[currentIndex];
+            let html = `<div class="question-card"><div class="question-text">${q.text}</div>`;
+
+            for (let [key, value] of Object.entries(q.options)) {
+                const checked = answers[currentIndex] === key ? 'checked' : '';
+                html += `
+                    <div class="option" onclick="selectOption('${key}')">
+                        <input type="radio" name="q${currentIndex}" value="${key}" ${checked} id="opt_${key}_${currentIndex}">
+                        <label for="opt_${key}_${currentIndex}">${value}</label>
+                    </div>
                 `;
+            }
+            html += '</div>';
+            questionContainer.innerHTML = html;
 
-                for (let [key, value] of Object.entries(q.options)) {
-                    const checked = answers[currentIndex] === key ? 'checked' : '';
-                    html += `
-                        <div class="option" onclick="selectOption('${key}')">
-                            <input type="radio" name="q${currentIndex}" value="${key}" ${checked} id="opt_${key}_${currentIndex}">
-                            <label for="opt_${key}_${currentIndex}">${value}</label>
-                        </div>
-                    `;
-                }
-                html += `</div></div>`;
-                questionContainer.innerHTML = html;
+            counter.innerText = `${currentIndex+1} / ${totalQuestions}`;
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = answers[currentIndex] === null;
+            nextBtn.innerText = (currentIndex === totalQuestions - 1) ? 'Узнать результат →' : 'Далее →';
+        }
 
-                counter.innerText = `${currentIndex+1} / ${totalQuestions}`;
-                prevBtn.disabled = currentIndex === 0;
-                nextBtn.disabled = answers[currentIndex] === null;
-                nextBtn.innerText = (currentIndex === totalQuestions - 1) ? 'Узнать результат →' : 'Далее →';
+        window.selectOption = function(optionKey) {
+            answers[currentIndex] = optionKey;
+            const radio = document.getElementById(`opt_${optionKey}_${currentIndex}`);
+            if (radio) radio.checked = true;
+            nextBtn.disabled = false;
+        };
+
+        function showResult() {
+            let scores = { a:0, b:0, c:0 };
+            for (let ans of answers) if (ans) scores[ans]++;
+
+            let type, description, role;
+            if (scores.a > scores.b && scores.a > scores.c) {
+                type = '🧠 Архитектор';
+                description = 'Любишь порядок, системы и надёжность. Твой девиз: «Главное, чтобы работало и было масштабируемо».';
+                role = '⭐ system architect / backend';
+            } else if (scores.b > scores.a && scores.b > scores.c) {
+                type = '🎨 Художник';
+                description = 'Ищешь красоту и новые формы. Умеешь упаковать продукт так, что им хочется пользоваться.';
+                role = '⭐ frontend / UX/UI / creative lead';
+            } else if (scores.c > scores.a && scores.c > scores.b) {
+                type = '🔍 Исследователь';
+                description = 'Тебе важно докопаться до сути. Ты — детектив от мира данных.';
+                role = '⭐ data scientist / analyst / R&D';
+            } else {
+                type = '🌟 Универсал';
+                description = 'В тебе сочетаются черты разных типов. Ты гибкий и многогранный специалист.';
+                role = '⭐ team lead / product manager';
             }
 
-            window.selectOption = function(optionKey) {
-                answers[currentIndex] = optionKey;
-                const radio = document.getElementById(`opt_${optionKey}_${currentIndex}`);
-                if (radio) radio.checked = true;
-                nextBtn.disabled = false;
-            };
+            resultTitle.innerText = type;
+            resultDesc.innerText = description;
+            resultRole.innerText = role;
+            quizScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+        }
 
-            function showResult() {
-                let scores = { a:0, b:0, c:0 };
-                for (let ans of answers) if (ans) scores[ans]++;
-
-                let type, description, role;
-                if (scores.a > scores.b && scores.a > scores.c) {
-                    type = '🧠 Архитектор';
-                    description = 'Любишь порядок, системы и надёжность. Твой девиз: «Главное, чтобы работало и было масштабируемо».';
-                    role = 'system architect / backend';
-                } else if (scores.b > scores.a && scores.b > scores.c) {
-                    type = '🎨 Художник';
-                    description = 'Ищешь красоту и новые формы. Умеешь упаковать продукт так, что им хочется пользоваться.';
-                    role = 'frontend / UX/UI / creative lead';
-                } else if (scores.c > scores.a && scores.c > scores.b) {
-                    type = '🔍 Исследователь';
-                    description = 'Тебе важно докопаться до сути. Ты — детектив от мира данных.';
-                    role = 'data scientist / analyst / R&D';
-                } else {
-                    type = '🌟 Универсал';
-                    description = 'В тебе сочетаются черты разных типов. Ты гибкий и многогранный специалист.';
-                    role = 'team lead / product manager';
-                }
-
-                resultType.innerText = type;
-                resultDesc.innerText = description;
-                resultRole.innerText = '⭐ ' + role;
-
-                quizScreen.classList.add('hidden');
-                resultScreen.classList.remove('hidden');
-            }
-
-            prevBtn.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    renderQuestion();
-                }
-            });
-
-            nextBtn.addEventListener('click', () => {
-                if (answers[currentIndex] === null) return;
-                if (currentIndex === totalQuestions - 1) {
-                    showResult();
-                } else {
-                    currentIndex++;
-                    renderQuestion();
-                }
-            });
-
-            restartBtn.addEventListener('click', () => {
-                answers.fill(null);
-                currentIndex = 0;
-                quizScreen.classList.remove('hidden');
-                resultScreen.classList.add('hidden');
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
                 renderQuestion();
-            });
+            }
+        });
 
+        nextBtn.addEventListener('click', () => {
+            if (answers[currentIndex] === null) return;
+            if (currentIndex === totalQuestions - 1) {
+                showResult();
+            } else {
+                currentIndex++;
+                renderQuestion();
+            }
+        });
+
+        restartBtn.addEventListener('click', () => {
+            answers.fill(null);
+            currentIndex = 0;
+            quizScreen.classList.remove('hidden');
+            resultScreen.classList.add('hidden');
             renderQuestion();
-        })();
-    </script>
+        });
+
+        renderQuestion();
+    })();
+</script>
+
+<!-- Poppins font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </body>
 </html>
