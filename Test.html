@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 Кто ты в IT?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #fff9fb;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: white;
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(255, 150, 180, 0.15);
+            padding: 40px 30px;
+            transition: all 0.3s;
+            border: 1px solid #ffe2eb;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #b34167;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subhead {
+            color: #c96b88;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            border-left: 4px solid #ffb6c1;
+            padding-left: 16px;
+            background: #fff2f5;
+            border-radius: 0 20px 20px 0;
+            line-height: 1.4;
+        }
+
+        .question-card {
+            background: #fff9fb;
+            border-radius: 28px;
+            padding: 30px 25px;
+            margin-bottom: 25px;
+            border: 2px solid #ffe2eb;
+            transition: 0.2s;
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #882d52;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 1.5px solid #ffd9e3;
+            border-radius: 60px;
+            margin-bottom: 12px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .option:hover {
+            border-color: #ff9eb5;
+            background: #fff0f3;
+            transform: scale(1.01);
+        }
+
+        .option input[type="radio"] {
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border: 2px solid #ffb6c1;
+            border-radius: 50%;
+            margin-right: 16px;
+            position: relative;
+            transition: 0.1s;
+            cursor: pointer;
+        }
+
+        .option input[type="radio"]:checked {
+            border-color: #ff6892;
+            background-color: #ff6892;
+            box-shadow: inset 0 0 0 5px white;
+        }
+
+        .option label {
+            font-size: 1rem;
+            color: #4a2a33;
+            font-weight: 400;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        button {
+            background: #ffb6c1;
+            border: none;
+            color: #882d52;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 14px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 6px 0 #e695a8;
+            border: 1px solid #ffa5b4;
+        }
+
+        button:hover {
+            background: #ffa5b4;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #e695a8;
+        }
+
+        button:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #e695a8;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+            box-shadow: 0 4px 0 #e695a8;
+        }
+
+        .counter {
+            color: #c96b88;
+            font-weight: 500;
+            background: #ffeef2;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+        }
+
+        .result-block {
+            background: linear-gradient(145deg, #fff2f5, #fff9fb);
+            border-radius: 40px;
+            padding: 35px;
+            text-align: center;
+            border: 2px solid #ffd0da;
+        }
+
+        .result-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #b53b61;
+            margin-bottom: 15px;
+        }
+
+        .result-desc {
+            font-size: 1.15rem;
+            color: #683743;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .result-role {
+            background: white;
+            border-radius: 50px;
+            padding: 14px 20px;
+            display: inline-block;
+            margin-bottom: 30px;
+            border: 2px dashed #ff9eb5;
+            color: #b34167;
+            font-weight: 600;
+        }
+
+        .restart-btn {
+            background: white;
+            color: #b34167;
+            box-shadow: 0 6px 0 #f7b1c0;
+            border: 2px solid #ffb6c1;
+            margin-top: 10px;
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #d69dae;
+            text-align: center;
+        }
+
+        .footer-note a {
+            color: #b34167;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #ffd9e3;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 4px solid white;
+            box-shadow: 0 10px 20px rgba(255, 150, 180, 0.3);
+        }
+    </style>
+</head>
+<body>
+<div class="container" id="app">
+    <!-- Шапка -->
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+        <div class="avatar">🌸</div>
+        <div>
+            <h1>Настя, 24</h1>
+            <div style="color: #b3657c;">блог про IT & творчество</div>
+        </div>
+    </div>
+
+    <!-- Экран теста (виден, пока нет результата) -->
+    <div id="quizScreen">
+        <div class="subhead">Ответь на 5 вопросов — узнай свой тип мышления в IT</div>
+        <div id="questionContainer"></div>
+        <div class="nav-buttons">
+            <span class="counter" id="questionCounter">1 / 5</span>
+            <div>
+                <button id="prevBtn" disabled>← Назад</button>
+                <button id="nextBtn">Далее →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Экран результата (скрыт изначально) -->
+    <div id="resultScreen" class="hidden">
+        <div class="result-block">
+            <div class="avatar" style="margin-bottom: 15px;">✨</div>
+            <div class="result-title" id="resultTitle"></div>
+            <div class="result-desc" id="resultDesc"></div>
+            <div class="result-role" id="resultRole"></div>
+            <button class="restart-btn" id="restartBtn">🌸 Пройти ещё раз</button>
+        </div>
+        <div class="footer-note">
+            ✨ тест от Насти · сохрани ссылку, чтобы поделиться
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // Вопросы
+        const questions = [
+            {
+                text: "1. Когда ты приступаешь к новому проекту, с чего начинаешь?",
+                options: {
+                    a: "С чёткого плана, распределения задач и структуры базы данных.",
+                    b: "С поиска вдохновения — смотрю классные примеры, делаю мудборд.",
+                    c: "С изучения исходных данных: что у нас есть, какие закономерности видны сразу."
+                }
+            },
+            {
+                text: "2. Что тебя больше всего радует в рабочем процессе?",
+                options: {
+                    a: "Идеально выстроенная архитектура, чистый код, который приятно читать.",
+                    b: "Красивый интерфейс, нестандартное решение или удачная визуализация.",
+                    c: "Неожиданный инсайт в данных, который объясняет, почему что-то работает не так."
+                }
+            },
+            {
+                text: "3. Если код не работает, твоя первая реакция?",
+                options: {
+                    a: "Систематически проверяю логику, перебираю компоненты.",
+                    b: "Ищу креативные обходные пути или переписываю с нуля в другом стиле.",
+                    c: "Анализирую входные данные, смотрю выбросы, проверяю гипотезы."
+                }
+            },
+            {
+                text: "4. Какой инструмент ты чаще всего открываешь?",
+                options: {
+                    a: "IDE, терминал, Jira, Confluence.",
+                    b: "Figma, Miro, фотошоп или любой редактор для творчества.",
+                    c: "Jupyter Notebook, Excel, SQL-клиент, Tableau."
+                }
+            },
+            {
+                text: "5. Что для тебя идеальный результат работы?",
+                options: {
+                    a: "Работающая система с хорошим кодом, которую легко поддерживать.",
+                    b: "Проект, который вызывает эмоции, выглядит круто и запоминается.",
+                    c: "Точный прогноз, полезная аналитика или обнаруженная закономерность."
+                }
+            }
+        ];
+
+        const totalQuestions = questions.length;
+        let currentIndex = 0;
+        let answers = new Array(totalQuestions).fill(null); // для каждого вопроса храним 'a','b','c' или null
+
+        const quizScreen = document.getElementById('quizScreen');
+        const resultScreen = document.getElementById('resultScreen');
+        const questionContainer = document.getElementById('questionContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const counter = document.getElementById('questionCounter');
+        const restartBtn = document.getElementById('restartBtn');
+
+        const resultTitle = document.getElementById('resultTitle');
+        const resultDesc = document.getElementById('resultDesc');
+        const resultRole = document.getElementById('resultRole');
+
+        function renderQuestion() {
+            const q = questions[currentIndex];
+            let html = `<div class="question-card"><div class="question-text">${q.text}</div>`;
+
+            for (let [key, value] of Object.entries(q.options)) {
+                const checked = answers[currentIndex] === key ? 'checked' : '';
+                html += `
+                    <div class="option" onclick="selectOption('${key}')">
+                        <input type="radio" name="q${currentIndex}" value="${key}" ${checked} id="opt_${key}_${currentIndex}">
+                        <label for="opt_${key}_${currentIndex}">${value}</label>
+                    </div>
+                `;
+            }
+            html += '</div>';
+            questionContainer.innerHTML = html;
+
+            // Обновляем счётчик
+            counter.innerText = `${currentIndex+1} / ${totalQuestions}`;
+
+            // Обновляем состояние кнопок
+            prevBtn.disabled = currentIndex === 0;
+            if (answers[currentIndex] === null) {
+                nextBtn.disabled = true;
+            } else {
+                nextBtn.disabled = false;
+            }
+
+            // Если дошли до последнего вопроса и он отвечен, меняем текст кнопки
+            if (currentIndex === totalQuestions - 1 && answers[currentIndex] !== null) {
+                nextBtn.innerText = 'Узнать результат →';
+            } else if (currentIndex === totalQuestions - 1) {
+                nextBtn.innerText = 'Узнать результат →';
+            } else {
+                nextBtn.innerText = 'Далее →';
+            }
+        }
+
+        // Глобальная функция для выбора варианта (вызывается из HTML)
+        window.selectOption = function(optionKey) {
+            answers[currentIndex] = optionKey;
+
+            // Обновить радиокнопку
+            const radio = document.getElementById(`opt_${optionKey}_${currentIndex}`);
+            if (radio) radio.checked = true;
+
+            // Активируем кнопку далее
+            nextBtn.disabled = false;
+
+            // Для последнего вопроса меняем текст, если ещё не изменён
+            if (currentIndex === totalQuestions - 1) {
+                nextBtn.innerText = 'Узнать результат →';
+            }
+        };
+
+        function showResult() {
+            // Подсчёт
+            let scores = { a:0, b:0, c:0 };
+            for (let ans of answers) {
+                if (ans) scores[ans]++;
+            }
+
+            let type = '';
+            let description = '';
+            let role = '';
+
+            if (scores.a > scores.b && scores.a > scores.c) {
+                type = '🧠 Архитектор';
+                description = 'Любишь порядок, системы и надёжность. Твой девиз: «Главное, чтобы работало и было масштабируемо».';
+                role = '⭐ system architect / backend';
+            } else if (scores.b > scores.a && scores.b > scores.c) {
+                type = '🎨 Художник';
+                description = 'Ищешь красоту и новые формы. Умеешь упаковать продукт так, что им хочется пользоваться.';
+                role = '⭐ frontend / UX/UI / creative lead';
+            } else if (scores.c > scores.a && scores.c > scores.b) {
+                type = '🔍 Исследователь';
+                description = 'Тебе важно докопаться до сути. Ты — детектив от мира данных.';
+                role = '⭐ data scientist / analyst / R&D';
+            } else {
+                type = '🌟 Универсал';
+                description = 'В тебе сочетаются черты разных типов. Ты гибкий и многогранный специалист.';
+                role = '⭐ team lead / product manager';
+            }
+
+            resultTitle.innerText = type;
+            resultDesc.innerText = description;
+            resultRole.innerText = role;
+
+            // Показать экран результата
+            quizScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+        }
+
+        // Навигация
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderQuestion();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            // Если последний вопрос и ответ есть — показать результат
+            if (currentIndex === totalQuestions - 1 && answers[currentIndex] !== null) {
+                showResult();
+            } else if (answers[currentIndex] !== null && currentIndex < totalQuestions - 1) {
+                currentIndex++;
+                renderQuestion();
+            }
+        });
+
+        // Перезапуск
+        restartBtn.addEventListener('click', () => {
+            answers = new Array(totalQuestions).fill(null);
+            currentIndex = 0;
+            quizScreen.classList.remove('hidden');
+            resultScreen.classList.add('hidden');
+            renderQuestion();
+        });
+
+        // Инициализация
+        renderQuestion();
+    })();
+</script>
+
+<!-- Дополнительно: подключаем шрифт Poppins -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</body>
+</html>
